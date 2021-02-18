@@ -43,15 +43,15 @@ $totalValue = 0;
 $delivery_time = date("H:i:s", strtotime("+2 Hours"));
 $deliveryMsg = "The delivery time is: ";
 
-if (isset($_POST["express_delivery"])){
+if (isset($_POST["express_delivery"])) {
     $totalValue += 5;
 //    $deliveryMsg = "Delivery time is ";
     $delivery_time = date("H:i:s", strtotime("+45 Minutes"));
 
 }
 
-if (isset($_POST["products"])){
-    foreach ($_POST["products"] AS $i => $price){
+if (isset($_POST["products"])) {
+    foreach ($_POST["products"] as $i => $price) {
         $totalValue += $products[$i]["price"];
     }
 }
@@ -118,11 +118,10 @@ if (isset($submit)) {
             $result = false;
         }
     }
-    if ($result == true) {
-        $error = "Thank you, your order has been successfully sent. ".$deliveryMsg.$delivery_time;
-
-
+    if (($result == true) && (!empty($totalValue))) {
+        $error = "Thank you, your order has been successfully sent. " . $deliveryMsg . $delivery_time;
     }
+
 } else {
     if (!empty($_COOKIE["emailCookie"])) {
         $email = $_COOKIE["emailCookie"];

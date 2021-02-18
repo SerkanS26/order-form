@@ -10,7 +10,7 @@
     <title>Order food & drinks</title>
 </head>
 <body>
-<div class="alert alert-success align-text-middle" role="alert" >
+<div class="alert alert-success text-center" role="alert" >
     <?php
     if (isset($submit)) {
         if (isset($error)){
